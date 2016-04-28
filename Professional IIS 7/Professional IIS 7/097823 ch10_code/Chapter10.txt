@@ -1,0 +1,251 @@
+---------------------------------------------
+Create FTP sites automatically on local and remote systems using IISFTP.VBS:
+---------------------------------------------
+
+iisftp.vbs /create Path SiteName [/b Port] [/i IPAddress] [/dontstart] [/isolation {AD|Local} [/ADdomain DomainName /ADadmin [Domain\]User /ADpass Password]] [/s Computer [/u [Domain\]User /p Password]]
+
+
+---------------------------------------------
+Deleting an FTP site:
+---------------------------------------------
+
+iisftp.vbs /delete SiteName [/s Computer [/u [Domain\]User /p Password]]
+
+
+---------------------------------------------
+Starting, stopping, and pausing FTP sites has a similar syntax, and can also be run against remote computers:
+---------------------------------------------
+
+iisftp.vbs /start SiteName [/s Computer [/u [Domain\]User /p Password]]
+iisftp.vbs /stop SiteName [/s Computer [/u [Domain\]User /p Password]]
+iisftp.vbs /pause SiteName [/s Computer [/u [Domain\]User /p Password]]
+
+
+
+---------------------------------------------
+Querying or setting Active Directory properties for users with IISFTP.VBS uses the following syntax:
+---------------------------------------------
+
+iisftp.vbs /GetADProp UserID [/s Computer [/u [Domain\]User /p Password]]
+iisftp.vbs /SetADProp UserID {msIIS-FTPDir|msIIS-FTPRoot} PropertyValue [/s Computer [/u [Domain\]User/p Password]]
+
+
+
+---------------------------------------------
+To create a non-isolated FTP site named Download with a directory of “c:\FTPRoot\Download” using the default port and all unassigned IP addresses, run the following command:
+---------------------------------------------
+
+iisftp.vbs /create c:\FTPRoot\Download Download
+
+
+---------------------------------------------
+To create an AD Isolated FTP site for the domain “domain1” with an Administrator of “JSmth” and a Password of “Passw0rd,” and then set the FTP directory for the user “TJones” to “c:\FTPRoot\domain1\TJones\,” run the following command:
+---------------------------------------------
+
+iisftp.vbs /create c:\FTPRoot\domain1 domain1 /isolation AD /ADdomain domain1 /ADadmin domain1\JSmith /ADpass Passw0rd
+iisftp.vbs /SetADProp domain1\TJones msIIS-FTPDir c:\FTPRoot\domain1\TJones\
+
+
+
+
+---------------------------------------------
+Creating FTP sites by editing configuration files:
+---------------------------------------------
+
+---------------------------------------------
+applicationHost.config file already has the web-site information, which looks similar to this:
+---------------------------------------------
+
+
+<site name="Web Site 1" id="99">
+    <application path="/">
+        <virtualDirectory path="/" physicalPath="%SystemDrive%\inetpub\website1" />
+    </application>
+    <bindings>
+        <binding protocol="http" bindingInformation="*:80:" />
+    </bindings>
+</site>
+
+
+
+---------------------------------------------
+Bind FTP to port 21:
+---------------------------------------------
+
+
+<site name="Web Site 1" id="99">
+    <application path="/">
+        <virtualDirectory path="/" physicalPath="%SystemDrive%\inetpub\website1" />
+    </application>
+    <bindings>
+        <binding protocol="http" bindingInformation="*:80:" />
+        <binding protocol="ftp" bindingInformation="*:21:" />
+    </bindings>
+</site>
+
+
+---------------------------------------------
+Adding SSL by editing configuration files:
+---------------------------------------------
+
+The default applicationHost.config should look something like this:
+
+<site name="Web Site 1" id="99">
+    <application path="/">
+        <virtualDirectory path="/" physicalPath="%SystemDrive%\inetpub\website1" />
+    </application>
+    <bindings>
+        <binding protocol="http" bindingInformation="*:80:" />
+        <binding protocol="ftp" bindingInformation="*:21:" />
+    </bindings>
+    <ftpServer>
+        <security>
+            <authentication>
+                <anonymousAuthentication enabled="false" />
+                <basicAuthentication enabled="true" />
+            </authentication>
+        </security>
+    </ftpServer>
+</site>
+
+
+
+---------------------------------------------
+Add the SSL certificate to the site
+---------------------------------------------
+
+
+<site name="Web Site 1" id="99">
+    <application path="/">
+        <virtualDirectory path="/" physicalPath="%SystemDrive%\inetpub\website1" />
+    </application>
+    <bindings>
+        <binding protocol="http" bindingInformation="*:80:" />
+        <binding protocol="ftp" bindingInformation="*:21:" />
+    </bindings>
+    <ftpServer>
+        <security>
+            <authentication>
+                <anonymousAuthentication enabled="false" />
+                <basicAuthentication enabled="true" />
+            </authentication>
+            <ssl serverCertHash="{Certificate Hash - Use the appropriate on for your site}" controlChannelPolicy="SslRequire" dataChannelPolicy="SslRequire" />
+        </security>
+    </ftpServer>
+</site>
+
+
+
+
+---------------------------------------------
+Adding host name support  in the applicationHost.config file:
+---------------------------------------------
+
+<site name="FtpSite1" id="42">
+    <application path="/">
+      <virtualDirectory path="/" physicalPath="%SystemDrive%\inetpub\FTPRoot\ftpsite1" />
+    </application>
+    <bindings>
+        <binding protocol="ftp" bindingInformation="192.168.1.10:21:" />
+    </bindings>
+    <ftpServer>
+        <security>
+            <authentication>
+                <anonymousAuthentication enabled="false" />
+                <basicAuthentication enabled="true" />
+            </authentication>
+        </security>
+    </ftpServer>
+</site>
+
+
+
+---------------------------------------------
+Add the binding for the host name:
+---------------------------------------------
+
+<site name="FtpSite1" id="42">
+  <application path="/">
+    <virtualDirectory path="/" physicalPath="%SystemDrive%\inetpub\FTPRoot\ftpsite1" />
+  </application>
+  <bindings>
+    <binding protocol="ftp" bindingInformation="192.168.1.10:21:ftp.domain1.com" />
+  </bindings>
+  <ftpServer>
+    <security>
+      <authentication>
+        <anonymousAuthentication enabled="false" />
+        <basicAuthentication enabled="true" />
+      </authentication>
+    </security>
+  </ftpServer>
+</site>
+
+
+
+
+---------------------------------------------
+LogParser Examples:
+---------------------------------------------
+
+---------------------------------------------
+Top 10 File Not Found (404) responses:
+---------------------------------------------
+
+SELECT
+	TOP 10
+	Count(*) AS Total,
+	cs-uri-stem
+FROM ex*.log
+WHERE
+	(sc-status = 404)
+GROUP BY cs-uri-stem
+ORDER BY Total DESC
+
+
+---------------------------------------------
+Daily Bandwidth Use
+---------------------------------------------
+
+
+SELECT
+	TO_STRING(TO_TIMESTAMP(date, time), 'MM-dd') AS Day,
+     	DIV(To_Real(Sum(cs-bytes)), 1048567) As Incoming(Mb),
+	DIV(To_Real(Sum(sc-bytes)), 1048567) As Outgoing(Mb)
+FROM ex*.log
+GROUP BY Day
+
+
+---------------------------------------------
+Maximum Time Taken
+---------------------------------------------
+
+SELECT
+	TOP 10
+	cs-uri-stem,
+	MAX(time-taken) AS MaxTime
+FROM ex*.log 
+GROUP BY cs-uri-stem
+ORDER BY MaxTime DESC
+
+
+---------------------------------------------
+File Leaching
+---------------------------------------------
+
+SELECT
+	TOP 10
+	TO_LOWERCASE (cs-uri-stem) as ImageFile,
+	COUNT(*) AS Hits,
+	TO_LOWERCASE (EXTRACT_TOKEN(cs(Referer),0,'?')) as OutsideReferer
+FROM ex*.log
+WHERE
+	(EXTRACT_TOKEN(cs(Referer),2,'/') <> 'www.domain1.com')
+	AND
+	(cs(Referer) IS NOT NULL)
+	AND
+	EXTRACT_EXTENSION(TO_LOWERCASE(cs-uri-stem)) IN ('gif'; 'jpg')
+	AND
+	(sc-status IN (200; 304))
+GROUP BY ImageFile, OutsideReferer
+ORDER BY Hits DESC

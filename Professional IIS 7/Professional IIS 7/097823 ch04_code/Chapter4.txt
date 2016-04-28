@@ -1,0 +1,492 @@
+---------------------------------------------
+Hello World!  --  HTML:
+---------------------------------------------
+
+
+<html>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <p>This is a Hello World! HTML file.</p>
+  </body>
+</html>
+
+
+
+---------------------------------------------
+Hello World!  --  ASP.NET:
+---------------------------------------------
+
+
+<%@ Page Language="VB" %>
+<% HelloWorld.Text = "Hello World!" %>
+<html>
+  <head>
+     <title>Hello World! - ASP.NET version</title>
+  </head>
+  <body>
+    <p>
+      <asp:label id="HelloWorld" runat="Server" />
+    </p>
+  </body>
+</html>
+
+
+
+---------------------------------------------
+ASP.NET 1.1 Machine Config File:
+---------------------------------------------
+
+<configSections>
+  <section name="system.webServer" type="System.Configuration.IgnoreSectionHandler,
+  System,  Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+</configSections>
+
+
+
+
+---------------------------------------------
+Install IIS 7.0 in Default Configuration using PKGMGR.EXE:
+---------------------------------------------
+
+start /w pkgmgr /iu:IIS-WebServerRole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI
+
+
+
+---------------------------------------------
+Installing IIS 7.0 with all optionsusing PKGMGR.EXE: (one single line without line breaks):
+---------------------------------------------
+
+start /w pkgmgr /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HttpRedirect; IIS-ApplicationDevelopment;IIS-ASPNET;IIS-NetFxExtensibility;IIS-ASP;IIS-CGI;IIS-ISAPIExtensions;IIS-ISAPIFilter;IIS-ServerSideIncludes;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-HttpTracing;IIS-CustomLogging;IIS-ODBCLogging;IIS-Security;IIS-BasicAuthentication;IIS-WindowsAuthentication;IIS-DigestAuthentication;IIS-ClientCertificateMappingAuthentication;IIS-IISCertificateMappingAuthentication;IIS-URLAuthorization;IIS-RequestFiltering;IIS-IPSecurity;IIS-Performance;IIS-HttpCompressionStatic;IIS-HttpCompressionDynamic;IIS-WebServerManagementTools;IIS-ManagementConsole;IIS-ManagementScriptingTools;IIS-ManagementService;IIS-IIS6ManagementCompatibility;IIS-Metabase;IIS-WMICompatibility;IIS-LegacyScripts;IIS-LegacySnapIn;IIS-FTPPublishingService;IIS-FTPServer;IIS-FTPManagement;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI
+
+
+
+---------------------------------------------
+PKGMGR.EXE Unattaned.xml file:
+---------------------------------------------
+
+<?xml version="1.0" ?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend"  
+    xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+<servicing>
+   <!-- Install a selectable update in a package that is in the Windows Foundation namespace -->
+   <package action="configure">
+      <assemblyIdentity
+         name="Microsoft-Windows-Foundation-Package"
+         version="6.0.5308.6"  <!-- Replace with your Windows version -->
+         language="neutral"
+         processorArchitecture="x86"
+         publicKeyToken="31bf3856ad364e35"
+         versionScope="nonSxS"
+      />
+    <selection name="IIS-WebServerRole" state="true"/>
+    <selection name="WAS-WindowsActivationService" state="true"/>
+    <selection name="WAS-ProcessModel" state="true"/>
+    <selection name="WAS-NetFxEnvironment" state="true"/>
+    <selection name="WAS-ConfigurationAPI" state="true"/>
+  </package>
+ </servicing>
+</unattend>
+</pre>
+
+
+
+---------------------------------------------
+PKGMGR.EXE Unattaned.xml file for complete installtion of IIS 7.0:
+---------------------------------------------
+
+<?xml version="1.0" ?>                                                                                                                      
+<unattend xmlns="urn:schemas-microsoft-com:unattend" 
+    xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+<servicing>
+   <!-- Install a selectable update in a package that is in the Windows Foundation namespace -->
+   <package action="configure">
+      <assemblyIdentity
+         name="Microsoft-Windows-Foundation-Package"
+         version="6.0.5303.0"
+         language="neutral"
+         processorArchitecture="x86"
+         publicKeyToken="31bf3856ad364e35"
+         versionScope="nonSxS"
+      />
+    <selection name="IIS-WebServerRole" state="true"/>
+    <selection name="IIS-WebServer" state="true"/>
+    <selection name="IIS-CommonHttpFeatures" state="true"/>
+    <selection name="IIS-StaticContent" state="true"/>
+    <selection name="IIS-DefaultDocument" state="true"/>
+    <selection name="IIS-DirectoryBrowsing" state="true"/>
+    <selection name="IIS-HttpErrors" state="true"/>
+    <selection name="IIS-HttpRedirect" state="true"/>
+    <selection name="IIS-ApplicationDevelopment" state="true"/>
+    <selection name="IIS-ASPNET" state="true"/>
+    <selection name="IIS-NetFxExtensibility" state="true"/>
+    <selection name="IIS-ASP" state="true"/>
+    <selection name="IIS-CGI" state="true"/>
+    <selection name="IIS-ISAPIExtensions" state="true"/>
+    <selection name="IIS-ISAPIFilter" state="true"/>
+    <selection name="IIS-ServerSideIncludes" state="true"/>
+    <selection name="IIS-HealthAndDiagnostics" state="true"/>
+    <selection name="IIS-HttpLogging" state="true"/>
+    <selection name="IIS-LoggingLibraries" state="true"/>
+    <selection name="IIS-RequestMonitor" state="true"/>
+    <selection name="IIS-HttpTracing" state="true"/>
+    <selection name="IIS-CustomLogging" state="true"/>
+    <selection name="IIS-ODBCLogging" state="true"/>
+    <selection name="IIS-Security" state="true"/>
+    <selection name="IIS-BasicAuthentication" state="true"/>
+    <selection name="IIS-URLAuthorization" state="true"/>
+    <selection name="IIS-RequestFiltering" state="true"/>
+    <selection name="IIS-IPSecurity" state="true"/>
+    <selection name="IIS-Performance" state="true"/>
+    <selection name="IIS-HttpCompressionStatic" state="true"/>
+    <selection name="IIS-HttpCompressionDynamic" state="true"/>
+    <selection name="IIS-WebServerManagementTools" state="true"/>
+    <selection name="IIS-ManagementConsole" state="true"/>
+    <selection name="IIS-ManagementScriptingTools" state="true"/>
+    <selection name="IIS-ManagementService" state="true"/>
+    <selection name="IIS-IIS6ManagementCompatibility" state="true"/>
+    <selection name="IIS-Metabase" state="true"/>
+    <selection name="IIS-WMICompatibility" state="true"/>
+    <selection name="IIS-LegacyScripts" state="true"/>
+    <selection name="IIS-LegacySnapIn" state="true"/>
+    <selection name="WAS-WindowsActivationService" state="true"/>
+    <selection name="WAS-ProcessModel" state="true"/>
+    <selection name="WAS-NetFxEnvironment" state="true"/>
+    <selection name="WAS-ConfigurationAPI" state="true"/>
+  </package>
+ </servicing>
+ </unattend>
+</pre>
+
+
+
+---------------------------------------------
+Using XCALCS.EXE to configure reccomended directory for hosting IIS 7.0:
+---------------------------------------------
+
+SETLOCAL
+REM Save command-line arguments passed as parameters:
+SET SITE_ID=%1%
+SET CONTENT_ROOT=%2
+ 
+md %CONTENT_ROOT%\site%SITE_ID%
+md %CONTENT_ROOT%\site%SITE_ID%\logs
+REM ACL SITE DIRECTORY FOR ADMINS AND the APPPOOL ACCOUNT
+xcacls %CONTENT_ROOT%\site%SITE_ID% /G {DomainName}\PoolId%1:R /y
+xcacls %CONTENT_ROOT%\site%SITE_ID% /E /G Administrators:F 
+ 
+REM CREATING FAILED REQUEST LOG DIRECTORY
+md %CONTENT_ROOT%\site%SITE_ID%\logs\failedReqLogfiles
+xcacls %CONTENT_ROOT%\site%SITE_ID%\logs\failedReqLogfiles /G {DomainName}\PoolId%1:F /y
+xcacls %CONTENT_ROOT%\site%SITE_ID%\logs\failedReqLogfiles /E /G Administrators:F
+ 
+REM CREATING WEBLOG DIRECTORY. HTTP.SYS LOGS AS MACHINE IDENTITY
+md %CONTENT_ROOT%\site%SITE_ID%\logs\logfiles
+xcacls %CONTENT_ROOT%\site%SITE_ID%\logs\logfiles /G {DomainName}\{MachineIdentity}:F /y
+xcacls %CONTENT_ROOT%\site%SITE_ID%\logs\logfiles /E /G Administrators:F
+ 
+REM CREATING WEB CONTENT DIRECTORY
+md %CONTENT_ROOT%\site%SITE_ID%\wwwroot
+xcacls %CONTENT_ROOT%\site%SITE_ID%\wwwroot /G {DomainName}\PoolId%1:F /y
+xcacls %CONTENT_ROOT%\site%SITE_ID%\wwwroot /E /G Administrators:F
+
+
+
+---------------------------------------------
+You can create the site and matching application pool with the following batch file code. Run this file with the parameter of the site name, which will also be used in creating the application pool. Replace {DomainName} with your domain name, {ServerName} with the name of the web content server, and {ContentShare} with the UNC share name of the content share on the content server.
+---------------------------------------------
+
+REM Create Application Pool 
+Appcmd add AppPool -name:Pool_Site%1 -processModel.username:{DomainName}\PoolId%1 -processModel.password:PoolIDPwd%1 -processModel.identityType:SpecificUser
+
+REM Creating a site with the content, freb and log
+REM configuration entries set to the directories we created and 
+REM secured before. 
+AppCmd add site -name:Site%1 -bindings:http/*:80:Site%1 -physicalPath:\\ {ServerName}\{ContentShare}\Site%1\wwwroot –logfile.directory:\\ {ServerName}\{ContentShare}\Site%1\logs\logfiles -traceFailedRequestsLogging.directory:\\{ServerName}\{ContentShare}\Site%1\logs\failedReqLogfiles
+
+REM Now assign the root application of the newly created web-site 
+REM to its Application Pool
+Appcmd set app -app.name:"Site%1/" -applicationPool:Pool_Site%1
+
+
+---------------------------------------------
+The following code will create a new Windows domain user account to be used for the application pool identity:
+---------------------------------------------
+
+using System;
+using System.DirectoryServices;
+class Program{
+static void Main(string[] args)        {
+DirectoryEntry AD = new DirectoryEntry("WinNT://" + Environment.MachineName + ",computer");
+                DirectoryEntry NewUser = AD.Children.Add("PoolID1", "user");
+NewUser.Invoke("SetPassword", new object[] { "PoolIDPwd1" });
+NewUser.Invoke("Put", new object[] { "Description", "AppPool Account" });
+      NewUser.CommitChanges();
+    }
+}
+
+
+
+---------------------------------------------
+The following code sets access for the administrator account, assuming content is in the e:\content folder.
+---------------------------------------------
+
+using System;
+using System.IO;
+using System.DirectoryServices;
+using System.Security.AccessControl;
+using System.Security.Principal;
+ 
+class Program
+{
+    static void Main(string[] args)
+    {
+        String dir = @"e:\content";
+        DirectorySecurity dirsec = Directory.GetAccessControl(dir);
+        dirsec.SetAccessRuleProtection(true, false);
+ 
+        foreach (AuthorizationRule rule in dirsec.GetAccessRules(true, true, typeof(NTAccount)))
+        {
+            dirsec.RemoveAccessRuleAll
+            (
+                new FileSystemAccessRule
+                (
+                    rule.IdentityReference,
+                    FileSystemRights.FullControl,
+                    AccessControlType.Allow
+                )
+            );
+        }
+ 
+        dirsec.AddAccessRule
+        (
+            new FileSystemAccessRule
+            (
+                @"BUILTIN\Administrators",
+                FileSystemRights.FullControl,
+                AccessControlType.Allow
+            )
+        );
+        dirsec.AddAccessRule
+        (
+            new FileSystemAccessRule
+            (
+                @"BUILTIN\Administrators",
+                FileSystemRights.FullControl,
+                InheritanceFlags.ObjectInherit,
+                PropagationFlags.InheritOnly,
+                AccessControlType.Allow
+            )
+        );
+ 
+        dirsec.AddAccessRule
+        (
+            new FileSystemAccessRule
+            (
+                @"BUILTIN\Administrators",
+                FileSystemRights.FullControl,
+                InheritanceFlags.ContainerInherit,
+                PropagationFlags.InheritOnly,
+                AccessControlType.Allow
+            )
+        );
+ 
+        Directory.SetAccessControl(dir, dirsec);
+    }
+}
+
+
+---------------------------------------------
+This code will create 100 application pools, consecutively numbered. Depending on your organization, you might want to create generic site and application pools and assign them to users, as needed.
+---------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.Web.Administration;
+using System.Diagnostics;
+ 
+namespace IIS7Demos
+{
+    class CreateAppPools
+    {
+        const int NUMBEROFPOOLS     = 100;
+        const int APPPOOLBASENUMBER = 1000;
+        const string POOLPREFIX    = "Pool_Site";
+        const string USERNAMEPREFIX = "PoolId";
+        const string PASSWORDPREFIX = "PoolIDPwd";
+        const bool ENCRYPTPASSWORD  = true;
+        static void Main(string[] args)
+        {
+            
+            ServerManager mgr = new ServerManager();
+            ApplicationPoolCollection pools = mgr.ApplicationPools;
+            for (int i = 0; i < NUMBEROFPOOLS; i++)
+            {
+                CreateAppPool(pools, i + APPPOOLBASENUMBER, POOLPREFIX, USERNAMEPREFIX, PASSWORDPREFIX, ENCRYPTPASSWORD);
+            }
+            mgr.CommitChanges();           
+        }
+ 
+        static bool CreateAppPool(ApplicationPoolCollection pools, int i, string appPoolPrefix, string userNamePrefix, string passwordPrefix, bool bEncryptPassword)
+        {
+            try
+            {
+                ApplicationPool newPool = pools.Add(appPoolPrefix + i);
+                newPool.ProcessModel.UserName = userNamePrefix + i;
+                // the SetMetadata call will remove the encryptionprovider in the schema. This results in clear-text passwords!!!
+                if (!bEncryptPassword)
+                    newPool.ProcessModel.Attributes["password"].SetMetadata("encryptionProvider", "");
+                 
+                newPool.ProcessModel.Password = passwordPrefix + i;
+                newPool.ProcessModel.IdentityType = ProcessModelIdentityType.SpecificUser;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Adding AppPool {0} failed. Reason: {1}", appPoolPrefix+i, ex.Message);
+                return false;
+            }
+ 
+            return true;
+        }
+    }
+}
+
+
+---------------------------------------------
+This code will create 100 matching sites for the application pools above. It uses the new microsoft.web.administration namespace for IIS 7.0.
+---------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Diagnostics;
+using Microsoft.Web.Administration;
+ 
+namespace IIS7Demos
+{
+    class CreateSites
+    {
+        const int NUMBEROFSITES     = 100;
+        const int SITEBASENUMBER    = 1000;
+        const string POOLPREFIX    = "POOL_";
+        const string SITENAMEPREFIX = "SITE";
+        const string ROOTDIR        = "e:\\content";
+         
+        static void Main(string[] args)
+        {           
+            ServerManager mgr = new ServerManager();
+            SiteCollection sites = mgr.Sites;
+ 
+            for (int i = SITEBASENUMBER; i < NUMBEROFSITES + SITEBASENUMBER; i++)
+            {
+                if (!CreateSitesInIIS(sites, SITENAMEPREFIX, i, ROOTDIR))
+                {
+                    Console.WriteLine("Creating site {0} failed", i);
+                }               
+            }
+ 
+            mgr.CommitChanges();
+        }
+ 
+        static bool CreateSitesInIIS(SiteCollection sites, string sitePrefix, int siteId, string dirRoot)
+        {
+ 
+            string siteName = sitePrefix + siteId;
+            // site gets set to Poolname using the following format. Example: 'Site_POOL10'
+            string poolName = POOLPREFIX + sitePrefix +  siteId;
+                
+            try
+            {
+                Site site = sites.CreateElement();
+                site.Id = siteId;
+                site.SetAttributeValue("name", siteName);
+                sites.Add(site);
+ 
+                Application app = site.Applications.CreateElement();
+                app.SetAttributeValue("path", "/");
+                app.SetAttributeValue("applicationPool", poolName);
+                site.Applications.Add(app);
+ 
+                VirtualDirectory vdir = app.VirtualDirectories.CreateElement();
+                vdir.SetAttributeValue("path", "/");
+                vdir.SetAttributeValue("physicalPath", dirRoot + @"\" + siteName);
+ 
+                app.VirtualDirectories.Add(vdir);
+ 
+                Binding b = site.Bindings.CreateElement();
+                b.SetAttributeValue("protocol", "http");
+                b.SetAttributeValue("bindingInformation", ":80:" + siteName);
+                site.Bindings.Add(b);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Create site {0} failed. Reason: {1}", siteName, ex.Message);
+                return false;
+            }
+ 
+            return true;
+        }
+    }
+}
+
+
+
+---------------------------------------------
+This code will set the IIS properties to remove the anonymous user:
+---------------------------------------------
+
+using System;
+using Microsoft.Web.Administration;
+ 
+static void SetAnonymousUserToProcessId()
+{             
+    ServerManager mgr = new ServerManager();
+    try
+    {
+        Configuration config = mgr.GetApplicationHostConfiguration();
+        ConfigurationSection section = config.GetSection(   "system.webServer/security/authentication/anonymousAuthentication");
+        section.SetAttributeValue("userName", (object)"");
+        // if we don't remove the attribute we end up with an encrypted empty string
+        section.RawAttributes.Remove("password");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Removing anonymous user entry failed. Reason: {0}", ex.Message);                    
+    }
+ 
+    mgr.CommitChanges();          
+    return;
+}
+
+
+---------------------------------------------
+
+This code sets the compilation directory for ASP.NET and locks the tempDirectory attribute so that end users cannot change this in their web.config files.
+---------------------------------------------
+
+using System;
+using Microsoft.Web.Administration;
+ 
+public class setASPNETCompilationDirectory
+{
+    static void Main()
+    {
+    ServerManager manager = new ServerManager();
+    Configuration rootConfig = manager.GetWebConfiguration(new WebConfigurationMap(), null);
+ 
+    ConfigurationSection section = rootConfig.GetSection("system.web/compilation");
+    section.Attributes["tempDirectory"].Value = @"e:\inetpub\temp\temporary asp.net files\site1";
+    section.SetMetadata("lockAttributes", "tempDirectory");
+ 
+    manager.CommitChanges();
+    }
+}
+
+
+
+
+
+

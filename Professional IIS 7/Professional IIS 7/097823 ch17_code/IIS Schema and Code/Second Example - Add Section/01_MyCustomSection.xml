@@ -1,0 +1,13 @@
+<configSchema>
+  <sectionSchema name="myCustomSection">
+    <attribute name="name" type="string" />
+    <attribute name="Length" type="int" defaultValue="100" />
+    <attribute name="IsActive" type="bool" defaultValue="true" />
+    <attribute name="Color" type="enum" defaultValue="Red" >
+      <enum name="Red" value="0" />
+      <enum name="Yellow" value="1" />
+      <enum name="Green" value="3" />
+      <enum name="Blue" value="4" />
+    </attribute>
+  </sectionSchema>
+</configSchema>

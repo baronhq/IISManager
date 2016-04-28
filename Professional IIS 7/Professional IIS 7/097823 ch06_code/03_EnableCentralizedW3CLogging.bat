@@ -1,0 +1,1 @@
+appcmd.exe set config /section:system.applicationHost/log /centrallogfilemode:CentralW3C /centralw3clogfile.enabled:true /centralw3clogfile.directory:c:\logs\inetpub\logs\logfiles /centralw3clogfile.period:Daily

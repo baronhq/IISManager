@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5603D803-3EE7-459E-8EFA-D4833705AF8B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Professional_IIS_7</RootNamespace>
+    <AssemblyName>Professional IIS 7</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Professional IIS 7\097823 ch12_code\IISAdminExtensionSample.zip" />
+    <None Include="Professional IIS 7\097823 ch12_code\ManagedCodeModuleSample.zip" />
+    <None Include="Professional IIS 7\097823 ch12_code\ManagedCodeModuleWithConfiguration.zip" />
+    <None Include="Professional IIS 7\097823 ch12_code\ManagedCodeModuleWithTracing.zip" />
+    <None Include="Professional IIS 7\097823 ch12_code\NativeCodeModuleSample.zip" />
+    <None Include="Professional IIS 7\097823 ch16_code\Registry\01_Client.reg" />
+    <None Include="Professional IIS 7\097823 ch16_code\Registry\02_Server.reg" />
+    <None Include="Professional IIS 7\097823 ch17_code\IIS Schema and Code\Second Example - Add Section\02_administration.config" />
+    <None Include="Professional IIS 7\097823 ch05_code\01_AddAppCmdToPath.ps1" />
+    <None Include="Professional IIS 7\097823 ch05_code\01_ListFilesInLogFileDir.bat" />
+    <None Include="Professional IIS 7\097823 ch05_code\02_UpdateLiveSiteInNewFolder.bat" />
+    <None Include="Professional IIS 7\097823 ch06_code\01_CreateMultipleSitesWithForLoop.bat" />
+    <None Include="Professional IIS 7\097823 ch06_code\02_EnableCentralizedBinaryLogging.bat" />
+    <None Include="Professional IIS 7\097823 ch06_code\03_EnableCentralizedW3CLogging.bat" />
+    <None Include="Professional IIS 7\097823 ch06_code\1_QueryLogFilesForBinary.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Professional IIS 7\097823 ch01_code\Chapter1.txt" />
+    <Content Include="Professional IIS 7\097823 ch02_code\Chapter2.txt" />
+    <Content Include="Professional IIS 7\097823 ch04_code\Chapter4.txt" />
+    <Content Include="Professional IIS 7\097823 ch10_code\Chapter10.txt" />
+    <Content Include="Professional IIS 7\097823 ch14_code\01_enableOneToOneCertMapping.vbs" />
+    <Content Include="Professional IIS 7\097823 ch14_code\02_addClientCertToUserMapping.vbs" />
+    <Content Include="Professional IIS 7\097823 ch15_code\01_sampleCertRequestINIfile.txt" />
+    <Content Include="Professional IIS 7\097823 ch16_code\CasPol.exe\01_CasPol to get permission to UNC path.vbs" />
+    <Content Include="Professional IIS 7\097823 ch16_code\WMI\01_SetEnvironmentVariable.vbs" />
+    <Content Include="Professional IIS 7\097823 ch17_code\AHAdmin\01_DisableAnonymousAuth.vbs" />
+    <Content Include="Professional IIS 7\097823 ch17_code\AHAdmin\02_SetSharedConfiguration.js" />
+    <Content Include="Professional IIS 7\097823 ch17_code\IIS Schema and Code\First Example - Extend Section\01_OwnerInfo.xml" />
+    <Content Include="Professional IIS 7\097823 ch17_code\IIS Schema and Code\First Example - Extend Section\02_Add info to Extended Schema.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\IIS Schema and Code\Second Example - Add Section\01_MyCustomSection.xml" />
+    <Content Include="Professional IIS 7\097823 ch17_code\IIS Schema and Code\Second Example - Add Section\03_Add Info to Extended Schema.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\01_Walkthrough\Default.aspx" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\01_Walkthrough\Default.aspx.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\02_Create Website.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\03_Create App Pool.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\04_Set Framework Version - Option 1.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\05_Set Framework Version - Option 2.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\06_Create New Application.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\07_Show Running Worker Processes - Console App.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\08_Show Running Page Requests - Console App.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\09_Recycle App Pool.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\10_Show Sites Enabled Status - Console App.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\11_Show Sites Default Docs - Console App.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\Microsoft.Web.Administration\12_Create IIS Manager Users and Assign Permissions.vb" />
+    <Content Include="Professional IIS 7\097823 ch17_code\WMI\01_Create Site and App Pool.vbs" />
+    <Content Include="Professional IIS 7\097823 ch20_code\ASP.NET\01_Sample Page with Tracing.aspx" />
+    <Content Include="Professional IIS 7\097823 ch20_code\ASP.NET\02_Show Trace Viewer Path.aspx" />
+    <Content Include="Professional IIS 7\097823 ch20_code\ASP.NET\03_Sample Page with Trace Warn and Write.aspx" />
+    <Content Include="Professional IIS 7\097823 ch20_code\WMI\01_List Worker Processes.vbs" />
+    <Content Include="Professional IIS 7\097823 ch20_code\WMI\02_List AppDomains.vbs" />
+    <Content Include="Professional IIS 7\097823 ch05_code\01_SetGlobalErrorPath.xml" />
+    <Content Include="Professional IIS 7\097823 ch05_code\02_SetDefaultWebSiteErrorPath.xml" />
+    <Content Include="Professional IIS 7\097823 ch05_code\03_SetFile1ErrorPath.xml" />
+    <Content Include="Professional IIS 7\097823 ch05_code\04_LockDefaultWebSiteLogging.xml" />
+    <Content Include="Professional IIS 7\097823 ch06_code\01_CreateWebSite.vb" />
+    <Content Include="Professional IIS 7\097823 ch06_code\02_EnablingW3CLogging.vb" />
+    <Content Include="Professional IIS 7\097823 ch06_code\03_SettingHostHeaders.vb" />
+    <Content Include="Professional IIS 7\097823 ch06_code\04_AddAdditionalBinding.vb" />
+    <Content Include="Professional IIS 7\097823 ch06_code\05_AddApplication.vb" />
+    <Content Include="Professional IIS 7\097823 ch06_code\06_DeletingApplications.vb" />
+    <Content Include="Professional IIS 7\097823 ch06_code\07_AddingVirtualDirectories.vb" />
+    <Content Include="Professional IIS 7\097823 ch07_code\01_AddPHPHandersToFastCGI.vb" />
+    <Content Include="Professional IIS 7\097823 ch08_code\Microsoft.Web.Administration\01_Create App Pool.vb" />
+    <Content Include="Professional IIS 7\097823 ch08_code\Microsoft.Web.Administration\02_Create VDir.vb" />
+    <Content Include="Professional IIS 7\097823 ch08_code\Microsoft.Web.Administration\03_Change Framework Version.vb" />
+    <Content Include="Professional IIS 7\097823 ch08_code\Microsoft.Web.Administration\04_Recycle App Pool.vb" />
+    <Content Include="Professional IIS 7\097823 ch08_code\WMI\01_Create App Pool.vbs" />
+    <Content Include="Professional IIS 7\097823 ch08_code\WMI\02_Set Framework Version.vbs" />
+    <Content Include="Professional IIS 7\097823 ch08_code\WMI\03_Recycle App Pool.vbs" />
+    <Content Include="Professional IIS 7\097823 ch09_code\01_Enable Update and Start Management Service.vbs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

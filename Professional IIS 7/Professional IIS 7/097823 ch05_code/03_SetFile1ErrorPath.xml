@@ -1,0 +1,7 @@
+<!-- set only file1.htm to log errors -->
+
+<location path= “Default Web Site/file1.htm”>
+<system.webServer>
+<httpLogging selectiveLogging= “LogError” />
+</system.webServer>
+</location>

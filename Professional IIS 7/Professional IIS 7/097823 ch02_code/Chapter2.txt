@@ -1,0 +1,56 @@
+---------------------------------------------
+The applicationHost.config file, located in the %windir%\system32\inetsrv\config folder, follows a standard XML format, <attribute-name>="<default-value>" [<metadata>] [<description>]. A typical section might look like this:
+---------------------------------------------
+
+<system.webserver>
+     <defaultDocument enabled="true">
+          <files>
+               <add value=Default.aspx" />
+          </files>
+     </defaultDocument>
+</system.webserver>
+
+
+
+---------------------------------------------
+This section changes the default document from Default.aspx to Home.asx for the site containing the web.config file. Other sites will still inherit from the applicationHost.config.
+---------------------------------------------
+
+<system.webserver>
+     <defaultDocument enabled="true">
+          <files>
+               <remove value=Default.aspx" />
+               <add value=Home.aspx" />
+          </files>
+     </defaultDocument>
+</system.webserver>
+
+
+
+---------------------------------------------
+The redirection.config file simply holds the information needed to direct the web server to the correct centralized configuration file, along with credentials for accessing that file. It might look something like this:
+---------------------------------------------
+
+<configuration>
+    <configSections>
+        <section name="configurationRedirection" />
+    </configSections>
+    <configurationRedirection enabled="true"
+        path="\\server1\centralconfig$\" userName="domain1.local\config"
+        password="Passw0rd1" />
+</configuration>
+
+
+---------------------------------------------
+The administration.config file holds much more information, such as which modules are available to IIS Manager. A configuration entry similar to the one below will add the default document module to IIS Manager for all sites.
+---------------------------------------------
+
+<location path=".">
+    <modules>
+        <add name="defaultDocument" />
+    </modules>
+</location>
+
+
+
+

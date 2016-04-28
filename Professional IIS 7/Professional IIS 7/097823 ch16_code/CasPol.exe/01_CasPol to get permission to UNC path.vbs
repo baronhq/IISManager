@@ -1,0 +1,1 @@
+CasPol.exe -m -ag 1 -url “file://\\{NAS1.DomainA.local}\*” FullTrust -exclusive on

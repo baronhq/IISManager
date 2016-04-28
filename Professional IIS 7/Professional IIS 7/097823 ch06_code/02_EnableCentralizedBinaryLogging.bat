@@ -1,0 +1,1 @@
+appcmd.exe set config /section:system.applicationHost/log /centrallogfilemode:CentralBinary /centralbinarylogfile.enabled:true /centralbinarylogfile.directory:c:\logs\inetpub\logs\logfiles /centralbinarylogfile.period:Daily

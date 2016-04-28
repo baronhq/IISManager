@@ -1,0 +1,15 @@
+<configSchema>
+  <sectionSchema name="system.applicationHost/sites">
+    <collection addElement="site">
+      <element name="OwnerInfo" >
+        <attribute name="name" type="string"/>
+        <attribute name="email" type="string"/>
+        <attribute name="role" type="string">
+          <enum name="Admin" value="0" />
+          <enum name="Tech" value="1" />
+          <enum name="Billing" value="3" />
+        </attribute>
+      </element>
+    </collection>
+  </sectionSchema>
+</configSchema>

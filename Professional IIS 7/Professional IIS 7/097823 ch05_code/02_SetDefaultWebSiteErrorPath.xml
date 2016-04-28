@@ -1,0 +1,7 @@
+<!-- Set logging for default web site to log every request -->
+
+<location path= “Default Web Site”>
+<system.webServer>
+<httpLogging selectiveLogging= “LogAll” />
+</system.webServer>
+</location>

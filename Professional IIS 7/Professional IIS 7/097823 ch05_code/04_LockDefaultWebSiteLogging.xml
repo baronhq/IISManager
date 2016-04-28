@@ -1,0 +1,7 @@
+<!-- Lock default web site error logging -->
+
+<location path="Default Web Site" overrideMode= "Deny">
+        <system.webServer>
+            <httpLogging selectiveLogging="LogError" />
+        </system.webServer>
+</location>
