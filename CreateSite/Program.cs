@@ -30,6 +30,16 @@ namespace CreateSite
             }
 
             mgr.CommitChanges();
+
+            //设置aspnet编译目录
+            //ServerManager manager = new ServerManager();
+            //Configuration rootConfig = manager.GetWebConfiguration(new WebConfigurationMap(), null);
+
+            //ConfigurationSection section = rootConfig.GetSection("system.web/compilation");
+            //section.Attributes["tempDirectory"].Value = @"e:\inetpub\temp\temporary asp.net files\site1";
+            //section.SetMetadata("lockAttributes", "tempDirectory");
+
+            //manager.CommitChanges();
         }
 
         static bool CreateSitesInIIS(SiteCollection sites, string sitePrefix, int siteId, string dirRoot)
@@ -69,6 +79,26 @@ namespace CreateSite
             }
 
             return true;
+        }
+
+        static void SetAnonymousUserToProcessId()
+        {
+            ServerManager mgr = new ServerManager();
+            try
+            {
+                Configuration config = mgr.GetApplicationHostConfiguration();
+                ConfigurationSection section = config.GetSection("system.webServer/security/authentication/anonymousAuthentication");
+                section.SetAttributeValue("userName", (object)"");
+                // if we don't remove the attribute we end up with an encrypted empty string
+                section.RawAttributes.Remove("password");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Removing anonymous user entry failed. Reason: {0}", ex.Message);
+            }
+
+            mgr.CommitChanges();
+            return;
         }
     }
 }
