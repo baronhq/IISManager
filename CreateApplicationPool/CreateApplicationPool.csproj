@@ -7,8 +7,8 @@
     <ProjectGuid>{FFA34963-C1A3-4141-A24F-C78E8C4C0B1E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IISManager</RootNamespace>
-    <AssemblyName>IISManager</AssemblyName>
+    <RootNamespace>CreateApplicationPool</RootNamespace>
+    <AssemblyName>CreateApplicationPool</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
