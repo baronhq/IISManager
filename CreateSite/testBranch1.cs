@@ -9,5 +9,7 @@ namespace CreateSite
     class testBranch1
     {
         string testBranchType = "testBranch";
+
+        string master = "master";
     }
 }
