@@ -13,5 +13,7 @@ namespace CreateSite
         string master = "master";
 
         string testBranchType2 = "testBranchType2";
+        
+        string testBranchType3 = "testBranchType3";
     }
 }
