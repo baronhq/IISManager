@@ -19,17 +19,17 @@ namespace CreateSite
         static void Main(string[] args)
         {
             //新建网站
-            ServerManager mgr = new ServerManager();
-            SiteCollection sites = mgr.Sites;
-            for (int i = SITEBASENUMBER; i < NUMBEROFSITES + SITEBASENUMBER; i++)
-            {
-                if (!CreateSitesInIIS(sites, SITENAMEPREFIX, i, ROOTDIR))
-                {
-                    Console.WriteLine("Creating site {0} failed", i);
-                }
-            }
+            //ServerManager mgr = new ServerManager();
+            //SiteCollection sites = mgr.Sites;
+            //for (int i = SITEBASENUMBER; i < NUMBEROFSITES + SITEBASENUMBER; i++)
+            //{
+            //    if (!CreateSitesInIIS(sites, SITENAMEPREFIX, i, ROOTDIR))
+            //    {
+            //        Console.WriteLine("Creating site {0} failed", i);
+            //    }
+            //}
 
-            mgr.CommitChanges();
+            //mgr.CommitChanges();
 
             //设置aspnet编译目录
             //ServerManager manager = new ServerManager();
@@ -40,6 +40,34 @@ namespace CreateSite
             //section.SetMetadata("lockAttributes", "tempDirectory");
 
             //manager.CommitChanges();
+
+            NewMethod();
+        }
+
+        private static void NewMethod()
+        {
+            // create the server management object
+            ServerManager managerServer = new ServerManager();
+
+            //create site object off the server management object
+            managerServer.Sites.Add("WebSite1", "http", "*:80:www.website1.com", "c:\\inetpub\\wwwroot\\website1");
+
+            //create application pool
+            managerServer.ApplicationPools.Add("WebSite1AppPool");
+
+            //assign application pool to site.
+            managerServer.Sites["WebSite1"].Applications[0].ApplicationPoolName = "WebSite1AppPool";
+
+            //create apppool object
+            ApplicationPool appPool = managerServer.ApplicationPools["WebSite1AppPool"];
+
+            //set app pool options
+            appPool.ManagedPipelineMode = ManagedPipelineMode.Integrated;
+            appPool.AutoStart = true;
+            appPool.Failure.RapidFailProtection = true;
+
+            //write the changes
+            managerServer.CommitChanges();
         }
 
         static bool CreateSitesInIIS(SiteCollection sites, string sitePrefix, int siteId, string dirRoot)

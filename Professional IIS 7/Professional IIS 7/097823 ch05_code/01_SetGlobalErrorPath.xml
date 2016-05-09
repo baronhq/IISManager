@@ -1,7 +1,7 @@
 <!-- Set global path for logging errors -->
 
-<location path= “.”>
+<location path= ï¿½.ï¿½>
 <system.webServer>
-<httpLogging selectiveLogging= “LogError” />
+<httpLogging selectiveLogging= ï¿½LogErrorï¿½ />
 </system.webServer>
 </location>
