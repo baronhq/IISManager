@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateSite", "CreateSite\Cr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Professional IIS 7", "Professional IIS 7\Professional IIS 7.csproj", "{5603D803-3EE7-459E-8EFA-D4833705AF8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISManagerMvc", "IISManagerMvc\IISManagerMvc.csproj", "{01C934A4-944C-4E0F-8C27-A29B06864B1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5603D803-3EE7-459E-8EFA-D4833705AF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5603D803-3EE7-459E-8EFA-D4833705AF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5603D803-3EE7-459E-8EFA-D4833705AF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C934A4-944C-4E0F-8C27-A29B06864B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C934A4-944C-4E0F-8C27-A29B06864B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C934A4-944C-4E0F-8C27-A29B06864B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C934A4-944C-4E0F-8C27-A29B06864B1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
